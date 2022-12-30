@@ -1,0 +1,33 @@
+body{
+    background:  #1A1110; 
+}
+
+main{
+    border-radius: 5% 20%;
+    border: 2px solid rgb(39, 105, 111);
+    background-color: beige;
+}
+
+h1.text-primary{
+    text-align: center;
+    text-transform: uppercase;
+    color: blueviolet;
+}
+
+form{
+    padding: 10px;
+    text-align: center;
+}
+
+input#taskLabel{
+    width: 50%;
+    margin: 0 1%;
+    padding: 0;
+    border: 3px solid salmon;
+    border-radius: 12px;
+}
+
+footer{
+    background:  #3f3636;
+    color: white;
+}
