@@ -1,12 +1,28 @@
 
 <?php
+
+//Post to DB
     require_once('./Database/connection.php');
 
+    if(isset($_POST['Update']) && ($_POST['EditVal'] != "")){
+        $newTask = $_POST['EditVal'];
+    
+        $conn->query("UPDATE `task1` SET `task_id`=NULL, `task`=`$newTask`,  `status`=NULL WHERE $id=task_id") or die(mysqli_errno($conn));
+
+        //redirect back home
+        header("location:./index.php");
+    }
+?> 
+
+<?php
+    //Get task id into the form
     $NewV = $_GET['task_id'];
-    $Data = $conn->query('SELECT * FROM `task1` ORDER BY `task_id` ASC ');
-   
+
+    $Data = $conn->query("SELECT * FROM `task1` WHERE task_id=$NewV");
+
     while ($Val = $Data->fetch_array()) {
-        $NewV = $Val['task'];
+        $task = $Val['task'];
+
     }
 ?>
 
@@ -27,7 +43,7 @@
             <hr style="border-top:2px dotted #ccc;"/>
                 <form action="" method="post">
                         <div class="form-group" style="display:flex;flex-direction:row;">
-                            <input type="text" name="EditVal" class="form-control" value="<?php $NewV ?>" >
+                            <input type="text" value="<?= $task; ?>" name="EditVal" class="form-control" />
                             <button type="submit" name="Update" class="btn btn-primary" >Update</button>
                         </div>
                 </form>
@@ -37,16 +53,3 @@
 
 </body>
 </html>
-
-<?php
-    require_once('./Database/connection.php');
-
-    if(isset($_POST['Update']) && ($_POST['EditVal'] != "")){
-    
-        $New = $_GET['task_id'];
-
-        $conn->query("UPDATE `task1` SET `status` = '$EditVal'  WHERE `task_id` = $New") or die(mysqli_errno($conn));
-        //redirect back home
-        header("location:index.php");
-    }
-?>

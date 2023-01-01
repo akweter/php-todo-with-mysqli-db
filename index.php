@@ -10,7 +10,7 @@
     <title>Todo | Track Your Activies</title>
 </head>
 <body>
-    
+
     <header>
         <nav class="navbar navbar-default">
             <div class="container-fluid">
@@ -26,13 +26,14 @@
                         <div class="form-group" style="display:flex;flex-direction:row;">
                             <label for="taskLabel"><strong>Whats next?</strong></label>
                             <input type="text" name="task" class="form-control" required id="taskLabel">
-                            <button type="submit" class="btn btn-primary" ><div class="fa fa-plus">Add</div></button>
+                            <button type="submit" name="add" class="btn btn-primary" ><div class="fa fa-plus">Add</div></button>
                         </div>
                 </form>
                 </p>
                 <table class="table">
                     <thead>
                         <tr>
+                            <th>Task Id</th>
                             <th>#</th>
                             <th>Task</th>
                             <th>Status</th>
@@ -52,6 +53,7 @@
 
                                     while ($Val = $Data->fetch_array()) {
                                         echo "<tr>";
+                                                echo "<td>".$Val['task_id']. "</td>";
                                                 echo "<td>".$count++. "</td>";
                                                 echo "<td>".$Val['task']."</td>";
                                                 echo "<td>".$Val['status']."</td>";

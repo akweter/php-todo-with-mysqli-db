@@ -1,7 +1,7 @@
     <?php
         include_once('./Database/connection.php');
 
-        if(isset($_POST['add']) || ($_POST['task'] != " ")){
+        if(isset($_POST['add']) && ($_POST['task'] != " ")){
             
                 $task = $_POST['task'];
 
