@@ -5,12 +5,12 @@
             
                 $task = $_POST['task'];
 
-                $conn->query("INSERT INTO `task1` (`task_id`, `task`, `status`)  VALUES(' ', '$task', ' ') ");
+                $Data = $conn->query("INSERT INTO `task1` (`task_id`, `task`, `status`)  VALUES(' ', '$task', ' ') ");
 
                 //redirect back home
                 header('location:./index.php');
             }
             else{
-            echo('Error adding new task');
+            echo('Error adding new task'); 
         }
     ?>

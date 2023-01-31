@@ -33,7 +33,6 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Task Id</th>
                             <th>#</th>
                             <th>Task</th>
                             <th>Status</th>
@@ -53,7 +52,6 @@
 
                                     while ($Val = $Data->fetch_array()) {
                                         echo "<tr>";
-                                                echo "<td>".$Val['task_id']. "</td>";
                                                 echo "<td>".$count++. "</td>";
                                                 echo "<td>".$Val['task']."</td>";
                                                 echo "<td>".$Val['status']."</td>";
